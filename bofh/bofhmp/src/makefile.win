@@ -1,0 +1,56 @@
+CC = cl
+CFLAGS = /O2 /W1
+BMECONV = bmeconv
+LINKFLAGS = SDL.lib 
+LIBS=
+
+all: ../missions/original.blk ../missions/test.blk ../data/bofh.pal	 \
+../data/splash.pal ../data/splash.raw ../data/title.spr			 \
+../data/player.spr ../data/weapon.spr ../data/machine.spr		 \
+../data/fistman.spr ../data/gunman.spr ../data/shotgman.spr		 \
+../data/uziman.spr ../data/tech.spr ../data/closet.spr			 \
+../data/leader.spr ../data/sadist.spr ../data/bigfnt.spr		 \
+../data/smallfnt.spr ../data/blackfnt.spr ../data/editor.spr ../bofh.exe \
+../bofhedit.exe
+.PHONY: all
+
+OBJSBOFH=actor.obj bofh.obj bomb.obj enemy.obj hiscore.obj init.obj sincos.obj libbme.a
+
+OBJSBOFHEDIT=bofhedit.obj endian.obj libbme.a
+
+
+
+
+../bofh.exe: $(OBJSBOFH)
+	link $(LINKFLAGS) $(OBJSBOFH) /out:bofh.exe
+
+
+../bofhedit.exe: $(OBJSBOFHEDIT)
+	link $(LINKFLAGS) $(OBJSBOFHEDIT) /out:bofhedit.exe
+	
+.c.obj:
+	$(CC) -c $(CFLAGS) $*.c
+
+../missions/original.blk: bofhblk.lbm
+	$(BMECONV) -b -t255 -r254 -h253 $(<) $@
+
+../missions/test.blk: bofhblk.lbm
+	$(BMECONV) -b -t255 -r254 -h253 $(<) $@
+
+../data/bofh.pal: bofhblk.lbm
+	$(BMECONV) -p $(<) $@
+
+../data/%.pal: %.lbm
+	$(BMECONV) -p $(<) $@
+
+../data/%.raw: %.lbm
+	$(BMECONV) -n $(<) $@
+
+../data/%.spr: %.lbm
+	$(BMECONV) -s -t255 -r254 -h253 $(<) $@
+
+clean:
+	del bofh.exe
+	del bofhedit.exe
+	del *.obj
+.PHONY: clean

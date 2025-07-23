@@ -1,0 +1,44 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: zlib - Win32 LIB Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Joonas\LOCALS~1\Temp\RSP38.tmp" with contents
+[
+/nologo /MD /W3 /O2 /D "WIN32" /D "NDEBUG" /Fo"Win32_LIB_Release/" /Fd"Win32_LIB_Release/" /FD /c 
+"C:\00\bofh\zlib\src\zlib\1.2.3\zlib-1.2.3\gzio.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Joonas\LOCALS~1\Temp\RSP38.tmp" 
+Creating temporary file "C:\DOCUME~1\Joonas\LOCALS~1\Temp\RSP39.tmp" with contents
+[
+/nologo /out:"Win32_LIB_Release\zlib.lib" 
+".\Win32_LIB_Release\adler32.obj"
+".\Win32_LIB_Release\compress.obj"
+".\Win32_LIB_Release\crc32.obj"
+".\Win32_LIB_Release\deflate.obj"
+".\Win32_LIB_Release\gzio.obj"
+".\Win32_LIB_Release\infback.obj"
+".\Win32_LIB_Release\inffast.obj"
+".\Win32_LIB_Release\inflate.obj"
+".\Win32_LIB_Release\inftrees.obj"
+".\Win32_LIB_Release\trees.obj"
+".\Win32_LIB_Release\uncompr.obj"
+".\Win32_LIB_Release\zutil.obj"
+".\Win32_LIB_Release\zlib1.res"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\Joonas\LOCALS~1\Temp\RSP39.tmp"
+<h3>Output Window</h3>
+Compiling...
+gzio.c
+Creating library...
+
+
+
+<h3>Results</h3>
+zlib.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

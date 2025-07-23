@@ -3,6 +3,10 @@
 - The game can be downloaded from the Internet Archive [here](https://web.archive.org/web/20030625171044/http://www.student.oulu.fi:80/~loorni/software.htm)
 - The game was originally developed using Öörni's own BME engine, but it got switched to SDL in June 2003. The original versions source code cannot be found anymore, so I used the SDL version instead.
 
+![preview](bofh.png)
+
+
+
 ## Multiplayer VERY VERY WIP
 The multiplayer part is made with [ENet library](http://enet.bespin.org/). 
 The mod consists of server and (at this moment) 2 clients, where one of the clients is a host. 
@@ -18,6 +22,16 @@ The first client to connect to the server gets assigned as the host.
 6. The client extracts the data.
 7. The client spawns the actors using the data.
 
+### Directory structure
+
+- bofh_mp               - Visual C++ 6.0 workspace for the client and server projects.
+- bofh/bofhmp           - The games folder, where the compiled client file gets placed.
+- bofh/bofhsrc          - The games source code.
+- bofh/enet             - The ENet multiplayer library.
+- bofh/include          - SDL include files as well as other include files for the project.
+- bofh/lib              - SDL and compression libraries.
+- bofh/zlib             - Zlib includes and libraries.
+- bofh/compression.cpp  - compression function for sending the gamestate from the host to the client.
 
 ### What works?
 
@@ -35,4 +49,3 @@ The first client to connect to the server gets assigned as the host.
 - Player death
 - Bullet shells (and other actors) don't spawn properly
 - The game gets quite slow because of all the polling every frame
-
